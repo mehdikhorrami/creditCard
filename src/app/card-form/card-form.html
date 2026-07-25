@@ -1,0 +1,18 @@
+<form [formGroup]="cardForm" (ngSubmit)="submitForm()" >
+  <app-input-shared [controller]="nameControl" labelName="نام" placeHolder="نام را وارد کنید" ></app-input-shared>
+  <hr>
+  <app-input-shared [controller]="cardNumberControl" [type]="'number'" labelName="شماره کارت" placeHolder="1234123412341234" ></app-input-shared>
+  <hr>
+  <app-input-shared [controller]="expireDateControl" [type]="'date'" labelName="تاریخ انقضا" placeHolder="01/01" ></app-input-shared>
+  <hr>
+  <app-input-shared [controller]="securityControl" [type]="'password'" labelName="رمز" placeHolder="****" ></app-input-shared>
+  <button [disabled]="cardForm.invalid" type="submit">ثبت </button>
+  <button [disabled]="!cardForm.dirty" type="button" (click)="onReset()" >آنصزاف </button>
+</form>
+
+<hr>
+<!-- <div>
+  <p>مقدار: {{ cardForm.value | json }}</p>
+  <p>وضعیت اعتبار: {{ cardForm.valid }}</p>
+  <p>خطاها: {{ cardForm.controls['name'].errors | json }}</p>
+</div> -->

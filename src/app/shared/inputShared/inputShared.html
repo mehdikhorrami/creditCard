@@ -1,0 +1,23 @@
+  <label>{{labelName}}</label>
+  <input [type]="type" [formControl]="$any(controller)" [placeholder]="placeHolder">
+
+    @if(controller?.invalid && (controller?.touched && controller?.dirty)){
+
+        @if(controller?.errors?.['required']){
+            <div style="color: red;">
+این فیلد اجباری است            
+</div>
+        }
+        @if(controller?.errors?.['minlength']){
+            <div style="color: red;">
+حداقل تعداد کاراکتر {{ controller?.errors?.['minlength']?.requiredLength }} است 
+            (تعداد وارد شده: {{ controller?.errors?.['minlength']?.actualLength }})
+            </div> 
+        }
+        @if(controller?.errors?.['maxlength']){
+            
+            <div style="color: rgb(252, 122, 122);">
+حداکثر تعداد کاراکتر {{ controller?.errors?.['maxlength']?.requiredLength }} است
+            </div>
+        }
+    }
